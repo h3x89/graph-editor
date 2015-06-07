@@ -3,59 +3,155 @@
   <key attr.name="x" attr.type="double" for="node" id="d1" />
   <key attr.name="y" attr.type="double" for="node" id="d0" />
   <graph edgedefault="undirected">
-    <node id="0">
-      <data key="d0">1.22</data>
-      <data key="d1">2.24</data>
+    <node id="9">
+      <data key="d0">2.43</data>
+      <data key="d1">3.35</data>
+    </node>
+    <node id="10">
+      <data key="d0">2.41</data>
+      <data key="d1">4.23</data>
+    </node>
+    <node id="11">
+      <data key="d0">2.68</data>
+      <data key="d1">4.83</data>
+    </node>
+    <node id="12">
+      <data key="d0">3.67</data>
+      <data key="d1">4.1</data>
+    </node>
+    <node id="13">
+      <data key="d0">3.69</data>
+      <data key="d1">3.48</data>
+    </node>
+    <node id="14">
+      <data key="d0">3.23</data>
+      <data key="d1">3.24</data>
+    </node>
+    <node id="15">
+      <data key="d0">2.97</data>
+      <data key="d1">3.42</data>
+    </node>
+    <node id="16">
+      <data key="d0">2.85</data>
+      <data key="d1">2.15</data>
+    </node>
+    <node id="17">
+      <data key="d0">2.8</data>
+      <data key="d1">2.28</data>
+    </node>
+    <node id="18">
+      <data key="d0">2.82</data>
+      <data key="d1">2.39</data>
+    </node>
+    <node id="19">
+      <data key="d0">3.08</data>
+      <data key="d1">2.46</data>
+    </node>
+    <node id="20">
+      <data key="d0">3.31</data>
+      <data key="d1">2.37</data>
+    </node>
+    <node id="21">
+      <data key="d0">3.52</data>
+      <data key="d1">2.31</data>
+    </node>
+    <node id="22">
+      <data key="d0">3.85</data>
+      <data key="d1">2.23</data>
+    </node>
+    <node id="23">
+      <data key="d0">4.2</data>
+      <data key="d1">2.37</data>
+    </node>
+    <node id="24">
+      <data key="d0">4.49</data>
+      <data key="d1">2.76</data>
+    </node>
+    <node id="25">
+      <data key="d0">4.34</data>
+      <data key="d1">3.1</data>
+    </node>
+    <node id="26">
+      <data key="d0">4.1</data>
+      <data key="d1">3.24</data>
+    </node>
+    <node id="27">
+      <data key="d0">3.78</data>
+      <data key="d1">3.14</data>
+    </node>
+    <node id="28">
+      <data key="d0">3.53</data>
+      <data key="d1">2.95</data>
+    </node>
+    <node id="29">
+      <data key="d0">3.15</data>
+      <data key="d1">3.06</data>
+    </node>
+    <node id="30">
+      <data key="d0">2.87</data>
+      <data key="d1">3.53</data>
+    </node>
+    <node id="31">
+      <data key="d0">2.82</data>
+      <data key="d1">3.85</data>
+    </node>
+    <node id="32">
+      <data key="d0">2.97</data>
+      <data key="d1">3.93</data>
     </node>
     <node id="1">
       <data key="d0">1.48</data>
       <data key="d1">2.54</data>
     </node>
-    <node id="2">
-      <data key="d0">1.88</data>
-      <data key="d1">3.17</data>
+    <node id="0">
+      <data key="d0">1.22</data>
+      <data key="d1">2.24</data>
     </node>
     <node id="3">
       <data key="d0">3.7</data>
       <data key="d1">5.2</data>
     </node>
-    <node id="4">
-      <data key="d0">4.24</data>
-      <data key="d1">2.88</data>
+    <node id="2">
+      <data key="d0">1.88</data>
+      <data key="d1">3.17</data>
     </node>
     <node id="5">
       <data key="d0">3.73</data>
       <data key="d1">1.76</data>
     </node>
-    <node id="6">
-      <data key="d0">2.75</data>
-      <data key="d1">3.47</data>
+    <node id="4">
+      <data key="d0">4.24</data>
+      <data key="d1">2.88</data>
     </node>
     <node id="7">
       <data key="d0">2.4</data>
       <data key="d1">5.97</data>
     </node>
+    <node id="6">
+      <data key="d0">2.75</data>
+      <data key="d1">3.47</data>
+    </node>
     <node id="8">
       <data key="d0">3.31</data>
       <data key="d1">6.28</data>
     </node>
-    <edge source="2" target="3">
-      <data key="d2">272.640789318</data>
-    </edge>
-    <edge source="2" target="6">
-      <data key="d2">92.0271699011</data>
-    </edge>
     <edge source="3" target="8">
       <data key="d2">114.825955254</data>
+    </edge>
+    <edge source="3" target="2">
+      <data key="d2">272.640789318</data>
     </edge>
     <edge source="3" target="4">
       <data key="d2">238.201595293</data>
     </edge>
+    <edge source="3" target="7">
+      <data key="d2">151.092686785</data>
+    </edge>
     <edge source="3" target="6">
       <data key="d2">197.367677192</data>
     </edge>
-    <edge source="3" target="7">
-      <data key="d2">151.092686785</data>
+    <edge source="2" target="6">
+      <data key="d2">92.0271699011</data>
     </edge>
   </graph>
 </graphml>

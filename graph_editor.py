@@ -22,13 +22,13 @@ class App(pyglet.window.Window):
         self.selected = None
         self.offset = [0, 0]
         self.scale = 100.0
-        self.zoom_step = 0
+        # self.zoom_step = 0
         self.help = False
         self.info = False
         self.drag = False
         self.box = [0, 0, 1000, 1000]
-        self.history = []
-        self.history_index = -1
+        # self.history = []
+        # self.history_index = -1
         self.sidebar_width = 300
 
         # create vertex list
@@ -108,54 +108,54 @@ class App(pyglet.window.Window):
 
         return False
 
-    def undo(self):
-        if self.history_index == -1:
-            self.cmd_label.text = "There is no previous history"
-        else:
-            change = self.history[self.history_index]
-
-            if change[0] == "add":
-                self.g.remove_node(change[1])
-            elif change[0] == "add edge":
-                self.g.remove_edge(*change[1])
-            elif change[0] == "del":
-                self.g.add_node(change[1], **change[2])
-
-                for node, attributes in change[3].iteritems():
-                    self.g.add_edge(change[1], node, **attributes)
-            elif change[0] == "del edge":
-                self.g.add_edge(*change[1], **change[2])
-            elif change[0] == "move":
-                self.g.node[change[1]] = change[2]
-
-                for node, attributes in change[3].iteritems():
-                    self.g.add_edge(change[1], node, **attributes)
-
-            self.history_index -= 1
-            self.cmd_label.text = "'{0}' operation undone".format(change[0])
-
-    def redo(self):
-        if self.history_index == len(self.history) - 1:
-            self.cmd_label.text = "Already at newest change"
-        else:
-            self.history_index += 1
-            change = self.history[self.history_index]
-
-            if change[0] == "add":
-                self.g.add_node(change[1], **change[2])
-            elif change[0] == "add edge":
-                self.g.add_edge(*change[1], **change[2])
-            elif change[0] == "del":
-                self.g.remove_node(change[1])
-            elif change[0] == "del edge":
-                self.g.remove_edge(*change[1])
-            elif change[0] == "move":
-                self.g.node[change[1]] = change[4]
-
-                for node, attributes in change[5].iteritems():
-                    self.g.add_edge(change[1], node, **attributes)
-
-            self.cmd_label.text = "'{0}' operation redone".format(change[0])
+    # def undo(self):
+    #     if self.history_index == -1:
+    #         self.cmd_label.text = "There is no previous history"
+    #     else:
+    #         change = self.history[self.history_index]
+    #
+    #         if change[0] == "add":
+    #             self.g.remove_node(change[1])
+    #         elif change[0] == "add edge":
+    #             self.g.remove_edge(*change[1])
+    #         elif change[0] == "del":
+    #             self.g.add_node(change[1], **change[2])
+    #
+    #             for node, attributes in change[3].iteritems():
+    #                 self.g.add_edge(change[1], node, **attributes)
+    #         elif change[0] == "del edge":
+    #             self.g.add_edge(*change[1], **change[2])
+    #         elif change[0] == "move":
+    #             self.g.node[change[1]] = change[2]
+    #
+    #             for node, attributes in change[3].iteritems():
+    #                 self.g.add_edge(change[1], node, **attributes)
+    #
+    #         self.history_index -= 1
+    #         self.cmd_label.text = "'{0}' operation undone".format(change[0])
+    #
+    # def redo(self):
+    #     if self.history_index == len(self.history) - 1:
+    #         self.cmd_label.text = "Already at newest change"
+    #     else:
+    #         self.history_index += 1
+    #         change = self.history[self.history_index]
+    #
+    #         if change[0] == "add":
+    #             self.g.add_node(change[1], **change[2])
+    #         elif change[0] == "add edge":
+    #             self.g.add_edge(*change[1], **change[2])
+    #         elif change[0] == "del":
+    #             self.g.remove_node(change[1])
+    #         elif change[0] == "del edge":
+    #             self.g.remove_edge(*change[1])
+    #         elif change[0] == "move":
+    #             self.g.node[change[1]] = change[4]
+    #
+    #             for node, attributes in change[5].iteritems():
+    #                 self.g.add_edge(change[1], node, **attributes)
+    #
+    #         self.cmd_label.text = "'{0}' operation redone".format(change[0])
 
     def on_draw(self):
         self.clear()
@@ -287,17 +287,18 @@ class App(pyglet.window.Window):
 
     def on_mouse_drag(self, x, y, dx, dy, buttons, modifiers):
         if buttons & mouse.RIGHT:
-            self.offset[0] += dx
-            self.offset[1] += dy
+            None
+            # self.offset[0] += dx
+            # self.offset[1] += dy
         elif buttons & mouse.LEFT and self.mode == "modify":
             if self.selected != None:
                 node = self.g.node[self.selected]
 
                 if not self.drag:
                     # add to history
-                    self.history_index += 1
-                    del self.history[self.history_index:len(self.history)]
-                    self.history.append(["move", self.selected, copy.copy(node), self.g[self.selected]])
+                    # self.history_index += 1
+                    # del self.history[self.history_index:len(self.history)]
+                    # self.history.append(["move", self.selected, copy.copy(node), self.g[self.selected]])
 
                     self.drag = True
 
@@ -314,9 +315,9 @@ class App(pyglet.window.Window):
                     self.selected = len(self.g) - 1
 
                     # add to history
-                    self.history_index += 1
-                    del self.history[self.history_index:len(self.history)]
-                    self.history.append(("add", self.selected, copy.copy(self.g.node[self.selected])))
+                    # self.history_index += 1
+                    # del self.history[self.history_index:len(self.history)]
+                    # self.history.append(("add", self.selected, copy.copy(self.g.node[self.selected])))
                 else:
                     self.selected = node
             elif self.mode == "edge":
@@ -346,9 +347,9 @@ class App(pyglet.window.Window):
                             self.g.add_edge(self.selected, node, weight=d)
 
                             # add to history
-                            self.history_index += 1
-                            del self.history[self.history_index:len(self.history)]
-                            self.history.append(("add edge", (self.selected, node), self.g[self.selected][node]))
+                            # self.history_index += 1
+                            # del self.history[self.history_index:len(self.history)]
+                            # self.history.append(("add edge", (self.selected, node), self.g[self.selected][node]))
 
                         self.selected = node
             elif self.mode == "delete":
@@ -360,9 +361,9 @@ class App(pyglet.window.Window):
                         self.selected = None
 
                     # add to history
-                    self.history_index += 1
-                    del self.history[self.history_index:len(self.history)]
-                    self.history.append(("del", node, self.g.node[node], self.g[node]))
+                    # self.history_index += 1
+                    # del self.history[self.history_index:len(self.history)]
+                    # self.history.append(("del", node, self.g.node[node], self.g[node]))
 
                     # actually remove the node
                     self.g.remove_node(node)
@@ -371,9 +372,9 @@ class App(pyglet.window.Window):
                 # check if an edge has been clicked
                 if edge is not False:
                     # add to history
-                    self.history_index += 1
-                    del self.history[self.history_index:len(self.history)]
-                    self.history.append(("del edge", edge, self.g[edge[0]][edge[1]]))
+                    # self.history_index += 1
+                    # del self.history[self.history_index:len(self.history)]
+                    # self.history.append(("del edge", edge, self.g[edge[0]][edge[1]]))
 
                     # actually remove the edge
                     self.g.remove_edge(*edge)
@@ -396,9 +397,9 @@ class App(pyglet.window.Window):
 
             self.drag = False
 
-    def on_mouse_scroll(self, x, y, scroll_x, scroll_y):
-        self.zoom_step += scroll_y
-        self.scale = 100 * 1.2**self.zoom_step
+    # def on_mouse_scroll(self, x, y, scroll_x, scroll_y):
+    #     self.zoom_step += scroll_y
+    #     self.scale = 100 * 1.2**self.zoom_step
 
     def on_key_press(self, symbol, modifiers):
         if symbol == key.H:
@@ -426,9 +427,10 @@ class App(pyglet.window.Window):
             # get info about the file
             stat = os.stat("graph.graphml")
             num_nodes = len(self.g)
+            # size in K
             size = stat.st_size / 1000.0
             # display info
-            self.cmd_label.text = "{0} nodes written to graph.graphml ({1:,.1f}k)".format(num_nodes, size)
+            self.cmd_label.text = "{0} nodes written to graph.graphml ({1:,.1f}K)".format(num_nodes, size)
         elif symbol == key.L:
             try:
                 self.g = nx.read_graphml("graph.graphml")
@@ -437,7 +439,7 @@ class App(pyglet.window.Window):
                 num_nodes = len(self.g)
                 size = stat.st_size / 1000.0
                 # display info
-                self.cmd_label.text = "{0} nodes loaded from graph.graphml ({1:,.1f}k)".format(num_nodes, size)
+                self.cmd_label.text = "{0} nodes loaded from graph.graphml ({1:,.1f}K)".format(num_nodes, size)
 
                 # clean up
                 self.selected = None
@@ -450,10 +452,10 @@ class App(pyglet.window.Window):
             self.info = False
         elif symbol == key.Q:
             self.close()
-        elif symbol == key.Z:
-            self.undo()
-        elif symbol == key.Y:
-            self.redo()
+        # elif symbol == key.Z:
+        #     self.undo()
+        # elif symbol == key.Y:
+        #     self.redo()
         elif symbol == key.F11:
             self.set_fullscreen(not self.fullscreen)
         elif symbol == key.ESCAPE:
