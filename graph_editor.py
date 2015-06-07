@@ -456,11 +456,13 @@ class App(pyglet.window.Window):
         #     self.undo()
         # elif symbol == key.Y:
         #     self.redo()
-        elif symbol == key.F11:
-            self.set_fullscreen(not self.fullscreen)
+        # elif symbol == key.F11:
+        #     self.set_fullscreen(not self.fullscreen)
         elif symbol == key.ESCAPE:
             self.selected = None
 
+
+### TO TEZ USUNAC - NO HUJ NIE DA SIE ZMIENIAC :D
     def on_resize(self, width, height):
         super(App, self).on_resize(width, height)
 
