@@ -26,7 +26,7 @@ class App(pyglet.window.Window):
         self.help = False
         self.info = False
         self.drag = False
-        self.box = [0, 0, 1000, 1000]
+        # self.box = [0, 0, 1000, 1000]
         # self.history = []
         # self.history_index = -1
         self.sidebar_width = 300
@@ -190,11 +190,11 @@ class App(pyglet.window.Window):
                     self.node_sprite.draw()
 
             # draw borders
-            pyglet.graphics.draw(4, pyglet.gl.GL_LINE_LOOP,
-                ('v2f', (self.box[0] * self.scale + ox, self.box[1] * self.scale + oy,
-                        self.box[2] * self.scale + ox, self.box[1] * self.scale + oy,
-                        self.box[2] * self.scale + ox, self.box[3] * self.scale + oy,
-                        self.box[0] * self.scale + ox, self.box[3] * self.scale + oy)))
+            # pyglet.graphics.draw(4, pyglet.gl.GL_LINE_LOOP,
+            #     ('v2f', (self.box[0] * self.scale + ox, self.box[1] * self.scale + oy,
+            #             self.box[2] * self.scale + ox, self.box[1] * self.scale + oy,
+            #             self.box[2] * self.scale + ox, self.box[3] * self.scale + oy,
+            #             self.box[0] * self.scale + ox, self.box[3] * self.scale + oy)))
 
             # draw statusbar
             self.statusbar.draw(pyglet.gl.GL_QUADS)
@@ -295,6 +295,7 @@ class App(pyglet.window.Window):
                 node = self.g.node[self.selected]
 
                 if not self.drag:
+                    True == True
                     # add to history
                     # self.history_index += 1
                     # del self.history[self.history_index:len(self.history)]
@@ -392,8 +393,8 @@ class App(pyglet.window.Window):
                 self.g[self.selected][connected_node]["weight"] = d
 
             # update history
-            self.history[-1].append(copy.copy(self.g.node[self.selected]))
-            self.history[-1].append(copy.copy(self.g[self.selected]))
+            # self.history[-1].append(copy.copy(self.g.node[self.selected]))
+            # self.history[-1].append(copy.copy(self.g[self.selected]))
 
             self.drag = False
 
