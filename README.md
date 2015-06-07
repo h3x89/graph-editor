@@ -1,9 +1,15 @@
+# Author info
+
+      Robert Kubiś 96862
+      Poznań University of Technology
+      Visual Programing 2015
+
 # Graph Editor
 
-This app is use for create, edit, save and load graph from Graphml file.
-Graphml is an XML-based file format for graphs.
+    This app is use for create, edit, save and load graph from Graphml file.
+    Graphml is an XML-based file format for graphs.
 
-It is written in python, with pyglet and networkx
+    It is written in python, with pyglet and networkx
 
 ## Dependencies
 
