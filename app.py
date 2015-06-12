@@ -31,6 +31,7 @@ class App(pyglet.window.Window):
         # self.history_index = -1
         self.sidebar_width = 300
 
+        ### ????????? ###
         # create vertex list
         self.statusbar = pyglet.graphics.vertex_list(4,
             ('v2f', (0, 0, self.width, 0, self.width, 24, 0, 24)),
@@ -51,7 +52,7 @@ class App(pyglet.window.Window):
             self.help_label = pyglet.text.Label(help_file.read(), multiline=True, x=50, y=self.height - 50,
                     width=self.width-100, height=self.height-100, anchor_y="top", font_name="monospace", font_size=12)
 
-        # load images
+        # load images with anchor center of image
         node_img = pyglet.resource.image("node.png")
         node_img.anchor_x = 12
         node_img.anchor_y = 12
@@ -68,7 +69,7 @@ class App(pyglet.window.Window):
 
         for node in self.g.nodes_iter():
             d = (self.g.node[node]["x"] * self.scale - x)**2 + (self.g.node[node]["y"] * self.scale - y)**2
-
+            # check minimal distance
             if d < 36:
                 return node
 

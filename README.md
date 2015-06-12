@@ -17,8 +17,8 @@
 
 ## Running
 
-    chmod +x graph_editor.py && ./graph_editor.py
+    chmod +x app.py && ./app.py
 
     OR
 
-    python graph_editor.py
+    python app.py
