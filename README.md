@@ -4,7 +4,7 @@
       Poznań University of Technology
       Visual Programing 2015
 
-# Graph Editor
+# Program info
 
     This app is use for create, edit, save and load graph from Graphml file.
     Graphml is an XML-based file format for graphs.
