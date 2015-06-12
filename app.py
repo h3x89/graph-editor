@@ -2,7 +2,7 @@
 
 import math
 import os
-import copy
+# import copy
 
 import networkx as nx
 
@@ -11,13 +11,26 @@ from pyglet.window import key
 from pyglet.window import mouse
 from pyglet.gl import *
 
+__author__ = """\n""".join(['Robert Kubis (robert.h3x@gmail.com)'])
+
+__all__ = ['write_graphml', 'read_graphml', 'generate_graphml',
+           'GraphMLWriter', 'GraphMLReader']
+
 class App(pyglet.window.Window):
     def __init__(self):
         super(App, self).__init__(800, 600, "Graph Editor", resizable=True)
         self.set_minimum_size(640, 480)
 
-        # self.g = nx.Graph()
         self.g = nx.DiGraph()
+
+
+
+        # check directed Graph - why not working???
+        # default_edge_type='directed'
+        # if self.g.is_directed():
+        #         print "direct"
+
+
 
         self.mode = "node"
         self.selected = None
@@ -30,7 +43,7 @@ class App(pyglet.window.Window):
         # self.box = [0, 0, 1000, 1000]
         # self.history = []
         # self.history_index = -1
-        self.sidebar_width = 300
+        # self.sidebar_width = 300
 
         ### ????????? ###
         # create vertex list
@@ -53,13 +66,14 @@ class App(pyglet.window.Window):
             self.help_label = pyglet.text.Label(help_file.read(), multiline=True, x=50, y=self.height - 50,
                     width=self.width-100, height=self.height-100, anchor_y="top", font_name="monospace", font_size=12)
 
+        # I try draw circle but find simplest example :)
         # load images with anchor center of image (24x24)
         node_img = pyglet.resource.image("node.png")
         node_img.anchor_x = 12
         node_img.anchor_y = 12
         self.node_sprite = pyglet.sprite.Sprite(node_img)
 
-        selected_img = pyglet.resource.image("selected.png")
+        selected_img = pyglet.resource.image("node_selected.png")
         selected_img.anchor_x = 12
         selected_img.anchor_y = 12
         self.selected_sprite = pyglet.sprite.Sprite(selected_img)
@@ -159,6 +173,7 @@ class App(pyglet.window.Window):
     #
     #         self.cmd_label.text = "'{0}' operation redone".format(change[0])
 
+
     def on_draw(self):
         self.clear()
 
@@ -174,6 +189,7 @@ class App(pyglet.window.Window):
         else:
             # draw edges
             for edge in self.g.edges_iter():
+                pyglet.gl.glColor3f(1, 0, 0)
                 pyglet.graphics.draw(2, pyglet.gl.GL_LINES, ('v2f', (
                     ox + self.g.node[edge[0]]["x"] * self.scale,
                     oy + self.g.node[edge[0]]["y"] * self.scale,
@@ -469,22 +485,22 @@ class App(pyglet.window.Window):
 
 
 ### TO TEZ USUNAC - NO HUJ NIE DA SIE ZMIENIAC :D
-    def on_resize(self, width, height):
-        super(App, self).on_resize(width, height)
-
-        self.info_label.y = self.height - 50
-        self.info_label.width = self.width - 100
-        self.info_label.height = self.height - 100
-
-        self.help_label.y = self.height - 50
-        self.help_label.width = self.width - 100
-        self.help_label.height = self.height - 100
-
-        self.statusbar.vertices[2] = self.width
-        self.statusbar.vertices[4] = self.width
-
-        self.line.vertices[0] = self.width - 200
-        self.line.vertices[2] = self.width - 200
+    # def on_resize(self, width, height):
+    #     super(App, self).on_resize(width, height)
+    #
+    #     self.info_label.y = self.height - 50
+    #     self.info_label.width = self.width - 100
+    #     self.info_label.height = self.height - 100
+    #
+    #     self.help_label.y = self.height - 50
+    #     self.help_label.width = self.width - 100
+    #     self.help_label.height = self.height - 100
+    #
+    #     self.statusbar.vertices[2] = self.width
+    #     self.statusbar.vertices[4] = self.width
+    #
+    #     self.line.vertices[0] = self.width - 200
+    #     self.line.vertices[2] = self.width - 200
 
 
 if __name__ == "__main__":

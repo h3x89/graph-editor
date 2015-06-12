@@ -2,40 +2,46 @@
   <key attr.name="weight" attr.type="double" for="edge" id="d2" />
   <key attr.name="x" attr.type="double" for="node" id="d1" />
   <key attr.name="y" attr.type="double" for="node" id="d0" />
-  <graph edgedefault="undirected">
+  <graph edgedefault="directed">
     <node id="0">
-      <data key="d0">4.8</data>
-      <data key="d1">4.15</data>
+      <data key="d0">4.0</data>
+      <data key="d1">2.77</data>
     </node>
     <node id="1">
-      <data key="d0">4.32</data>
-      <data key="d1">3.32</data>
+      <data key="d0">1.71</data>
+      <data key="d1">2.46</data>
     </node>
     <node id="2">
-      <data key="d0">3.07</data>
-      <data key="d1">3.71</data>
+      <data key="d0">1.82</data>
+      <data key="d1">4.53</data>
     </node>
     <node id="3">
-      <data key="d0">5.27</data>
-      <data key="d1">1.59</data>
+      <data key="d0">3.74</data>
+      <data key="d1">4.77</data>
     </node>
     <edge source="0" target="1">
-      <data key="d2">0.958801335001</data>
-    </edge>
-    <edge source="0" target="2">
-      <data key="d2">1.78507702915</data>
+      <data key="d2">231.088727549</data>
     </edge>
     <edge source="0" target="3">
-      <data key="d2">2.60278696785</data>
+      <data key="d2">201.682919455</data>
     </edge>
     <edge source="1" target="2">
-      <data key="d2">1.30942735576</data>
+      <data key="d2">207.292064489</data>
     </edge>
     <edge source="1" target="3">
-      <data key="d2">1.97367677192</data>
+      <data key="d2">307.522356911</data>
     </edge>
-    <edge source="2" target="3">
-      <data key="d2">3.05522503263</data>
+    <edge source="2" target="0">
+      <data key="d2">280.178514522</data>
+    </edge>
+    <edge source="3" target="0">
+      <data key="d2">201.682919455</data>
+    </edge>
+    <edge source="3" target="1">
+      <data key="d2">307.522356911</data>
+    </edge>
+    <edge source="3" target="2">
+      <data key="d2">193.494185959</data>
     </edge>
   </graph>
 </graphml>
